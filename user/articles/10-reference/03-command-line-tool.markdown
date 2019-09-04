@@ -48,6 +48,12 @@ Follow these steps to change the default remote:
     lcp remote default <remote-alias>
     ```
 
+3.  Run this command to remove a remote: 
+
+    ```shell
+    lcp remote rm <remote-alias>
+    ```
+
 Alternatively, you can specify the remote inline as shown in the example below: 
 
 ```shell
@@ -57,12 +63,18 @@ lcp restart -p <project-id> -s <service-id> --remote <remote-alias>
 ## Showing the Service Logs
 
 You can use the `lcp log` command to display the service 
-logs your DXP Cloud project's. Here are some common examples. 
+logs of your DXP Cloud project's. Here are some common examples. 
 
 Check the logs from all services of a given project: 
 
 ```shell
 lcp log --project <projectID>
+```
+
+Check the logs from all services of a given project in a given environment: 
+
+```shell
+lcp log --project <projectID> --environment <environmentID>
 ```
 
 View the logs of a specific service in a project: 
@@ -71,10 +83,22 @@ View the logs of a specific service in a project:
 lcp log --project <projectID> --service <serviceID>
 ```
 
+View the logs of a specific container of a service: 
+
+```shell
+lcp log --project <projectID> --service <serviceID> --container <containerID>
+```
+
 View the logs of a specific project in a given interval of a time:
 
 ```shell
 lcp log -p <projectId> --since "4 hours ago" --until "30 minutes ago"
+```
+
+View the logs of a specific project in a given interval of a time in Japanese:
+
+```shell
+lcp log --since "il y a 1 jour" --until "hier" --lang "french" -r st
 ```
 
 ## List Projects or Services
@@ -88,10 +112,22 @@ See the full list of projects and services you own or collaborate on:
 lcp list
 ```
 
+See the full list of projects and services you own or collaborate on in a specific environment: 
+
+```shell
+lcp list --environment <environmentID>
+```
+
 List a project's services: 
 
 ```shell
 lcp list --project <projectID>
+```
+
+See the full list of projects and services you own or collaborate on in a specific environment of a specific remote: 
+
+```shell
+lcp list --environment <environmentID> --remote <remote-alias>
 ```
 
 Check a specific service in a project: 
@@ -113,6 +149,65 @@ You can also run the command in any instance of your service:
 
 ```shell
 lcp scale --project <projectID> --service <serviceID> --instance <abc123> 5
+```
+
+## Stop a Service
+
+It is also possible to stop a service from CLI. You can use all available flags for this command 
+to specify an environment, project or remote.
+
+By running the command below, the CLI will prompt you to choose a service from the available services to be stopped.
+```shell
+lcp stop
+```
+
+By running the command below, the CLI will prompt you to choose a service from the given project to be stopped.
+```shell
+lcp stop --project <projectID>
+```
+
+Stop a service from a project.
+```shell
+lcp stop --project <projectID> --service <serviceID>
+```
+
+## Restart a Service
+
+Restarting a service from the CLI is simple. You can use all available flags for this command 
+to specify an environment, project or remote.
+
+By running the command below, the CLI will prompt you to choose a service from the available services to be restarted.
+```shell
+lcp restart
+```
+
+By running the command below, the CLI will prompt you to choose a service from the given project to be scaled.
+```shell
+lcp restart --project <projectID>
+```
+
+Restart a service from a project.
+```shell
+lcp restart --project <projectID> --service <serviceID>
+```
+
+## Scale a Service
+
+If you want to configure the number of instances for a specific service, you can run the `scale` command from the CLI. You can use all available flags for this command to specify an environment, project, service or remote.
+
+By running the command below, the CLI will prompt you to choose a service from the available services to be scaled.
+```shell
+lcp scale
+```
+
+By running the command below, the CLI will prompt you to choose a service from the given project to be scaled.
+```shell
+lcp scale --project <projectID>
+```
+
+Scale a service from a project.
+```shell
+lcp scale --project <projectID> --service <serviceID>
 ```
 
 ## Access a Service's Shell
