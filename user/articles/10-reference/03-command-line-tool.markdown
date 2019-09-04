@@ -5,8 +5,7 @@ header-id: command-line-tool
 # Command-line Tool
 
 Liferay Cloud's command-line interface (CLI) is a tool that helps you use and 
-manage DXP Cloud. For example, you can use the CLI to create, manage, and scale 
-applications. 
+manage DXP Cloud. For example, you can use the CLI to perform some action on a service such as `restart`, `stop`, `deploy` and much more.
 
 ## Installing the Liferay Cloud CLI
 
@@ -14,24 +13,20 @@ If you use a Unix-like system such as macOS or Linux, open a terminal and run
 this command: 
 
 ```bash
-curl https://cdn.liferay.cloud/cli/latest/lcp.sh -fsSL | bash
+curl https://cdn.liferay.cloud/cli/install.sh -fsSL | bash
 ```
 
 If you get a permissions error, try running the same command with `sudo`. 
 
 If you use Windows, download the latest version of the 
-[CLI installer](https://cdn.wedeploy.com/cli/latest/we-installer-windows-amd64.msi). 
+[CLI installer](https://cdn.liferay.cloud/cli/latest/<FILE-NAME>.msi). 
 For other systems, see the list of 
-[available builds](https://dl.equinox.io/wedeploy/we/stable). 
-
-| **Note:** To deploy services on DXP Cloud, you must have 
-| [Git](https://git-scm.com/) 
-| installed. 
+[available builds](https://dl.equinox.io/liferaycloud/cli/stable). 
 
 ## Changing the CLI Remote
 
 To access DXP Cloud services via the CLI, your CLI must be pointed to the right 
-DXP Cloud. The remote URL for DXP Cloud is `liferay.cloud`. To list the CLI's 
+DXP Cloud remote. The remote URL for DXP Cloud is `liferay.cloud`. To list the CLI's 
 remotes, run this command: 
 
 ```shell
@@ -44,7 +39,7 @@ Follow these steps to change the default remote:
     already exists, then you don't need to do this step): 
 
     ```shell
-    lcp remote add <remote-alias> <remote-url>
+    lcp remote set <remote-alias> <remote-url>
     ```
 
 2.  Run this command to set the default remote: 
@@ -53,18 +48,18 @@ Follow these steps to change the default remote:
     lcp remote default <remote-alias>
     ```
 
-Alternatively, you can specify the remote inline via this command: 
+Alternatively, you can specify the remote inline as shown in the example below: 
 
 ```shell
-lcp shell -p <project-id> -s <service-id> --remote <remote-alias>
+lcp restart -p <project-id> -s <service-id> --remote <remote-alias>
 ```
 
 ## Showing the Service Logs
 
-You can use the `lcp log` command to display your DXP Cloud project's service 
-logs. Here are some common examples. 
+You can use the `lcp log` command to display the service 
+logs your DXP Cloud project's. Here are some common examples. 
 
-Check the logs of an entire project: 
+Check the logs from all services of a given project: 
 
 ```shell
 lcp log --project <projectID>
@@ -76,70 +71,10 @@ View the logs of a specific service in a project:
 lcp log --project <projectID> --service <serviceID>
 ```
 
-Alternatively, you can view a service's logs by passing the service's full URL 
-to `lcp log`: 
+View the logs of a specific project in a given interval of a time:
 
 ```shell
-lcp log --url <serviceID>-<projectID>.lfr.cloud
-```
-
-## Manage Custom Domains
-
-You can use the `lcp domain` command to manage custom domains in your DXP Cloud 
-project. Here are some common examples. 
-
-Get the list of custom domains for a particular service: 
-
-```shell
-lcp domain --project <projectID> --service <serviceID>
-```
-
-Add a custom domain to a service:
-
-```shell
-lcp domain add example.com --project <projectID> --service <serviceID>
-```
-
-Remove a custom domain from a service:
-
-```shell
-lcp domain rm example.com --project <projectID> --service <serviceID>
-```
-
-Alternatively, you can run the same commands by passing the service's full URL 
-to `lcp domain`: 
-
-```shell
-lcp domain --url <serviceID>-<projectID>.lfr.cloud
-```
-
-## Manage Environment Variables
-
-You can use the `lcp env` command to manage environment variables. Here are some 
-common examples. 
-
-Get the list of environment variables for a particular service: 
-
-```shell
-lcp env --project <projectID> --service <serviceID>
-```
-
-Add an environment variable to a service: 
-
-```shell
-lcp env set SOME_KEY somevalue --project <projectID> --service <serviceID>
-```
-
-Remove an environment variable from a service: 
-
-```shell
-lcp env rm SOME_KEY --project <projectID> --service <serviceID>
-```
-
-Alternatively, you can pass a service's full URL to `lcp env`: 
-
-```shell
-lcp env --url <serviceID>-<projectID>.lfr.cloud
+lcp log -p <projectId> --since "4 hours ago" --until "30 minutes ago"
 ```
 
 ## List Projects or Services
@@ -165,25 +100,19 @@ Check a specific service in a project:
 lcp list --project <projectID> --service <serviceID>
 ```
 
-Alternatively, you can check a service by passing its full URL to `lcp list`: 
-
-```shell
-lcp list --url <serviceID>-<projectID>.lfr.cloud
-```
-
 ## Execute Commands in a Service Container
 
 You can also use the CLI to run commands in a service container. For example, 
 this runs a command in a specific service instance: 
 
 ```shell
-lcp exec --project <projectID> --service <serviceID> --instance <abc123> -- mkdir foo
+lcp shell --project <projectID> --service <serviceID> --instance <abc123>
 ```
 
 You can also run the command in any instance of your service: 
 
 ```shell
-lcp delete --project <projectID> --service <serviceID> --instance any -- mkdir foo
+lcp scale --project <projectID> --service <serviceID> --instance <abc123> 5
 ```
 
 ## Access a Service's Shell
@@ -198,8 +127,25 @@ This lists all the services in the container and lets you choose which one to
 access. 
 
 Alternatively, you can access the shell of a specific service's container by 
-adding the service's project ID and service ID to the `lcp shell` command: 
+adding the service's project ID, service ID and container ID to the `lcp shell` command. If you do not pass any of them, the CLI will prompt you choose.
 
 ```shell
-lcp shell -p <projectID> -s <serviceID>
+lcp shell -p <projectID> -s <serviceID> -c <containerID>
 ```
+
+## All Available Commands
+
+These are all commands available on the CLI:
+
+| Command      | Description                                   |
+| -----------  | -----------                                   |
+| lcp docs     | Open DXP Cloud Docs page in your browser      |
+| lcp login    | Login to DXP Cloud                            |
+| lcp deploy   | Deploy a service to DXP Cloud                 |
+| lcp list     | Show list of projects and services            |
+| lcp log      | Show logs of project, service or container    |
+| lcp restart  | Restart a service                             |
+| lcp scale    | Scale a service                               |
+| lcp stop     | Stop a service                                |
+| lcp shell    | Open a shell to a service                     |
+| lcp update   | Update DXP Cloud CLI                          |
