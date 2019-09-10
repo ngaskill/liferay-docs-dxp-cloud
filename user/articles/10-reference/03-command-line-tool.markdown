@@ -22,7 +22,7 @@ deploy services, display logs, and more.
 ## Installing the CLI
 
 If you use a Unix-like system such as macOS or Linux, run this command in a 
-terminal to instal the CLI: 
+terminal to install the CLI: 
 
 ```bash
 curl https://cdn.liferay.cloud/cli/install.sh -fsSL | bash
@@ -106,8 +106,6 @@ View a project's logs from a given time interval:
 ```shell
 lcp log -p <projectId> --since "4 hours ago" --until "30 minutes ago"
 ```
-
-View the logs of a specific project in a given interval of a time in French:
 
 View a project's logs from a given time interval in a different language. This 
 example displays the logs in French: 
@@ -257,8 +255,7 @@ access.
 
 Alternatively, you can access the shell of a specific service's container by 
 passing the service's project ID, service ID, and container ID to the 
-`lcp shell` command. If you do not pass any of these, the CLI prompts you 
-choose. 
+`lcp shell` command. If you do not pass these, the CLI prompts you choose. 
 
 ```shell
 lcp shell -p <projectID> -s <serviceID> -c <containerID>
