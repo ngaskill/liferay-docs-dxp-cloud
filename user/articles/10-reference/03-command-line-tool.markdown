@@ -4,13 +4,25 @@ header-id: command-line-tool
 
 # Command-line Tool
 
-Liferay Cloud's command-line interface (CLI) is a tool that helps you use and 
-manage DXP Cloud. For example, you can use the CLI to perform some action on a service such as `restart`, `stop`, `deploy` and much more.
+Liferay DXP Cloud's command-line interface (CLI) is a tool that helps you use 
+and manage DXP Cloud. For example, you can use the CLI to restart, stop, and 
+deploy services, display logs, and more. 
 
-## Installing the Liferay Cloud CLI
+-   [Installing the CLI](#installing-the-cli)
+-   [Changing the CLI Remote](#changing-the-cli-remote)
+-   [Showing the Service Logs](#showing-the-service-logs)
+-   [List Projects or Services](#list-projects-or-services)
+-   [Execute Commands in a Service Container](#execute-commands-in-a-service-container)
+-   [Stop a Service](#stop-a-service)
+-   [Restart a Service](#restart-a-service)
+-   [Scale a Service](#scale-a-service)
+-   [Access a Service's Shell](#access-a-services-shell)
+-   [Available Commands](#available-commands)
 
-If you use a Unix-like system such as macOS or Linux, open a terminal and run 
-this command: 
+## Installing the CLI
+
+If you use a Unix-like system such as macOS or Linux, run this command in a 
+terminal to instal the CLI: 
 
 ```bash
 curl https://cdn.liferay.cloud/cli/install.sh -fsSL | bash
@@ -48,13 +60,13 @@ Follow these steps to change the default remote:
     lcp remote default <remote-alias>
     ```
 
-3.  Run this command to remove a remote: 
+3.  If you need to remove a remote, run this command: 
 
     ```shell
     lcp remote rm <remote-alias>
     ```
 
-Alternatively, you can specify the remote inline as shown in the example below: 
+Alternatively, you can specify the remote inline as shown here: 
 
 ```shell
 lcp restart -p <project-id> -s <service-id> --remote <remote-alias>
@@ -62,40 +74,43 @@ lcp restart -p <project-id> -s <service-id> --remote <remote-alias>
 
 ## Showing the Service Logs
 
-You can use the `lcp log` command to display the service 
-logs of your DXP Cloud project's. Here are some common examples. 
+You can use the `lcp log` command to display your DXP Cloud project's service 
+logs. Here are some common examples. 
 
-Check the logs from all services of a given project: 
+See all of a project's service logs: 
 
 ```shell
 lcp log --project <projectID>
 ```
 
-Check the logs from all services of a given project in a given environment: 
+See all of a project's service logs in a given environment:
 
 ```shell
 lcp log --project <projectID> --environment <environmentID>
 ```
 
-View the logs of a specific service in a project: 
+View the logs of a given service in a project: 
 
 ```shell
 lcp log --project <projectID> --service <serviceID>
 ```
 
-View the logs of a specific container of a service: 
+View the logs of a given service container: 
 
 ```shell
 lcp log --project <projectID> --service <serviceID> --container <containerID>
 ```
 
-View the logs of a specific project in a given interval of a time:
+View a project's logs from a given time interval: 
 
 ```shell
 lcp log -p <projectId> --since "4 hours ago" --until "30 minutes ago"
 ```
 
-View the logs of a specific project in a given interval of a time in Japanese:
+View the logs of a specific project in a given interval of a time in French:
+
+View a project's logs from a given time interval in a different language. This 
+example displays the logs in French: 
 
 ```shell
 lcp log --since "il y a 1 jour" --until "hier" --lang "french" -r st
@@ -112,7 +127,8 @@ See the full list of projects and services you own or collaborate on:
 lcp list
 ```
 
-See the full list of projects and services you own or collaborate on in a specific environment: 
+See the full list of projects and services you own or collaborate on in a given 
+environment: 
 
 ```shell
 lcp list --environment <environmentID>
@@ -124,13 +140,14 @@ List a project's services:
 lcp list --project <projectID>
 ```
 
-See the full list of projects and services you own or collaborate on in a specific environment of a specific remote: 
+See the full list of projects and services you own or collaborate on in a given 
+environment of a given remote: 
 
 ```shell
 lcp list --environment <environmentID> --remote <remote-alias>
 ```
 
-Check a specific service in a project: 
+View a given service in a project: 
 
 ```shell
 lcp list --project <projectID> --service <serviceID>
@@ -139,7 +156,7 @@ lcp list --project <projectID> --service <serviceID>
 ## Execute Commands in a Service Container
 
 You can also use the CLI to run commands in a service container. For example, 
-this runs a command in a specific service instance: 
+this runs a command in a given service instance: 
 
 ```shell
 lcp shell --project <projectID> --service <serviceID> --instance <abc123>
@@ -153,59 +170,76 @@ lcp scale --project <projectID> --service <serviceID> --instance <abc123> 5
 
 ## Stop a Service
 
-It is also possible to stop a service from CLI. You can use all available flags for this command 
-to specify an environment, project or remote.
+You can also use the CLI to stop a service. You can use all available flags for 
+this command to specify an environment, project, or remote. 
 
-By running the command below, the CLI will prompt you to choose a service from the available services to be stopped.
+When you run this command, the CLI prompts you to choose a service to stop from 
+all available services: 
+
 ```shell
 lcp stop
 ```
 
-By running the command below, the CLI will prompt you to choose a service from the given project to be stopped.
+This command does the same for the services in a given project: 
+
 ```shell
 lcp stop --project <projectID>
 ```
 
-Stop a service from a project.
+Alternatively, you can provide the project and service IDs to stop a given 
+service: 
+
 ```shell
 lcp stop --project <projectID> --service <serviceID>
 ```
 
 ## Restart a Service
 
-Restarting a service from the CLI is simple. You can use all available flags for this command 
-to specify an environment, project or remote.
+Restarting a service from the CLI is simple. You can use all available flags for 
+this command to specify an environment, project, or remote. 
 
-By running the command below, the CLI will prompt you to choose a service from the available services to be restarted.
+When you run this command, the CLI prompts you to choose a service to restart 
+from all available services: 
+
 ```shell
 lcp restart
 ```
 
-By running the command below, the CLI will prompt you to choose a service from the given project to be scaled.
+This command does the same for the services in a given project: 
+
 ```shell
 lcp restart --project <projectID>
 ```
 
-Restart a service from a project.
+Alternatively, you can provide the project and service IDs to restart a given 
+service: 
+
 ```shell
 lcp restart --project <projectID> --service <serviceID>
 ```
 
 ## Scale a Service
 
-If you want to configure the number of instances for a specific service, you can run the `scale` command from the CLI. You can use all available flags for this command to specify an environment, project, service or remote.
+To configure the number of instances for a specific service, you can run the 
+`scale` command from the CLI. You can use all available flags for this command 
+to specify an environment, project, service, or remote. 
 
-By running the command below, the CLI will prompt you to choose a service from the available services to be scaled.
+When you run this command, the CLI prompts you to choose a service to scale from 
+all available services: 
+
 ```shell
 lcp scale
 ```
 
-By running the command below, the CLI will prompt you to choose a service from the given project to be scaled.
+This command does the same for the services in a given project: 
+
 ```shell
 lcp scale --project <projectID>
 ```
 
-Scale a service from a project.
+Alternatively, you can provide the project and service IDs to scale a given 
+service: 
+
 ```shell
 lcp scale --project <projectID> --service <serviceID>
 ```
@@ -222,25 +256,27 @@ This lists all the services in the container and lets you choose which one to
 access. 
 
 Alternatively, you can access the shell of a specific service's container by 
-adding the service's project ID, service ID and container ID to the `lcp shell` command. If you do not pass any of them, the CLI will prompt you choose.
+passing the service's project ID, service ID, and container ID to the 
+`lcp shell` command. If you do not pass any of these, the CLI prompts you 
+choose. 
 
 ```shell
 lcp shell -p <projectID> -s <serviceID> -c <containerID>
 ```
 
-## All Available Commands
+## Available Commands
 
-These are all commands available on the CLI:
+These commands are available in the CLI: 
 
-| Command      | Description                                   |
-| -----------  | -----------                                   |
-| lcp docs     | Open DXP Cloud Docs page in your browser      |
-| lcp login    | Login to DXP Cloud                            |
-| lcp deploy   | Deploy a service to DXP Cloud                 |
-| lcp list     | Show list of projects and services            |
-| lcp log      | Show logs of project, service or container    |
-| lcp restart  | Restart a service                             |
-| lcp scale    | Scale a service                               |
-| lcp stop     | Stop a service                                |
-| lcp shell    | Open a shell to a service                     |
-| lcp update   | Update DXP Cloud CLI                          |
+Command        | Description |
+-------------- | ----------- |
+`lcp docs`     | Open a DXP Cloud Docs page in your browser. |
+`lcp login`    | Log in to DXP Cloud. |
+`lcp deploy`   | Deploy a service to DXP Cloud. |
+`lcp list`     | Show a list of projects and services. |
+`lcp log`      | Show the logs of a project, service, or container. |
+`lcp restart`  | Restart a service. |
+`lcp scale`    | Scale a service. |
+`lcp stop`     | Stop a service. |
+`lcp shell`    | Open a shell to a service. |
+`lcp update`   | Update the DXP Cloud CLI. |
