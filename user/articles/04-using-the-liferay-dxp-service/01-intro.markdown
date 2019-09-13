@@ -1,5 +1,5 @@
 ---
-header-id: liferay-dxp-service
+header-id: using-the-liferay-dxp-service
 ---
 
 # Liferay DXP Service
