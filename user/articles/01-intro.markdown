@@ -26,13 +26,13 @@ This adds up to faster and more reliable time to market.
 
 ## Key Features
 
--   [High Availability]()
--   [Development Cycle]()
--   [Application Management]()
--   [Monitoring]()
--   [Autoscaling]()
--   [Governance]()
--   [Backup, Recovery, and Security]()
+-   [High Availability](#high-availability)
+-   [Development Cycle](#development-cycle)
+-   [Application Management](#application-management)
+-   [Monitoring](#monitoring)
+-   [Auto-scaling](#auto-scaling)
+-   [Governance](#governance)
+-   [Backup, Recovery, and Security](#backup-recovery-and-security)
 
 ### High Availability
 
