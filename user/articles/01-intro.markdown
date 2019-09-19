@@ -1,115 +1,119 @@
 ---
-header-id: what-is-dxp-cloud
+header-id: welcome-to-dxp-cloud
 ---
 
-# What is DXP Cloud?
+# Welcome to DXP Cloud
 
-Liferay DXP Cloud is a secure, reliable enterprise cloud platform (PaaS) that 
-simplifies the management of Liferay DXP. DXP Cloud provides tools and 
-infrastructure for
+Liferay DXP Cloud is a secure and reliable enterprise cloud platform that 
+provides the infrastructure and tooling necessary to simplify, secure, and 
+deliver amazing applications on Liferay DXP.
 
--   Networking
--   Security
--   Monitoring
--   Installation
--   Deployment
--   Clustering
--   Scaling
--   Load balancing
--   Backups
--   And more...
+Worry less and build more with a platform that provides:
 
-All of which are designed with years of in-house Liferay expertise. 
+- [Standards Compliant Security, Automated Backups, and Flexible Governance](#standards-compliant-security-automated-backups-and-flexible-governance)
+- [High Availability, Scalability, and Performance](#high-availability-scalability-and-performance)
+- [Real Time Alerts](#real-time-alerts)
 
-For you, this means one thing: *value*. DXP Cloud does the heavy lifting for 
-you. Gone are the days of having to manage your own infrastructure. You can 
-therefore focus on what matters: delivering new features and applications for 
-your business. DXP Cloud has you covered there too. 
+All of which is designed, built, and supported by a dedicated team of 
+Liferay professionals with a over a decade of experience running business 
+critical solutions on Liferay DXP. 
 
-DXP Cloud accelerates enterprise development and deployment by providing a 
-DevOps platform for Liferay DXP. DXP Cloud 
+DXP Cloud accelerates application development and deployment by providing a 
+complete DevOps CI/CD strategy, tools, and workflow out-of-the-box.
 
--   Integrates with Jenkins and GitHub to provide continuous integration (CI) 
-    and continuous delivery (CD). 
--   Contains different environments for different purposes (e.g., dev, testing, 
-    production). 
--   Provides tools that help you manage builds and deployments across 
-    environments. 
+Every DXP Cloud project comes with:
 
-This adds up to faster time to market with more reliability. 
+- [Accelerated Development with Built-in CI/CD](#accelerated-development-with-built-in-cicd)
+- [Application Development Tools](#application-development-tools)
+- [Insightful Monitoring](#insightful-monitoring)
 
-## Key Features
+## Standards Compliant Security, Automated Backups, and Flexible Governance
 
--   [High Availability](#high-availability)
--   [Development Cycle](#development-cycle)
--   [Application Management](#application-management)
--   [Monitoring](#monitoring)
--   [Auto-scaling](#auto-scaling)
--   [Governance](#governance)
--   [Backup, Recovery, and Security](#backup-recovery-and-security)
+DXP Cloud is designed with security in mind. Build and deploy mission critical 
+sites with confidence knowing that we are ISO 27001 and AICPA SOC2 certified. 
+See our 
+[security policy]((https://www.liferay.com/documents/10182/3292406/Liferay+DXP+Cloud+Data+Security+and+Protection.pdf/78ce7065-9787-1fb2-9c7b-6d7c13f4a3e6?t=1564674972483)) 
+for more information. 
 
-### High Availability
+[Automated Backups](/docs/-/knowledge_base/dxp-cloud/backup-service) ensure 
+that data and documents are protected and ready for restoration in case of 
+critical data corruption or failure. Encryption at rest ensures that sensitive 
+data saved on disks isn't readable by any user or application without a valid 
+key. 
 
-Deliver high-availability, zero-downtime deployments to ensure that 
-mission-critical sites stay online. DXP Cloud supports the creation of fault 
-tolerance processes to meet organizations' unique needs and detect and repair 
-common server problems as they occur. This helps prevent small programming 
-errors from accumulating and causing a server crash, without the need to 
-allocate additional resources. 
+![Figure 3: DXP Cloud's backup service preserves and protects your data.](../images/backups.png)
 
-### Development Cycle
+Out-of-the-box 
+[role and team administration](/docs/-/knowledge_base/dxp-cloud/team-collaboration-access-control) 
+allow administrators to deliver maximum productivity and security by adding or 
+removing people from teams and managing permissions per project environment.
 
-Streamline development with a full CI/CD strategy. For each new commit or pull 
-request, DXP Cloud triggers a new build that can be deployed to your QA, UAT, 
-or production environment. 
+![Figure 4: Manage your project's team members, including their permissions.](../images/invite-member.png)
 
-![Figure 1: View, manage, and deploy your builds from a central location.](../images/builds.png)
+## High Availability, Scalability, and Performance
 
-### Application Management
+[Clustering](/docs/-/knowledge_base/dxp-cloud/using-the-liferay-dxp-service) and 
+[load-balancing](/docs/-/knowledge_base/dxp-cloud/load-balancer) deliver 
+highly available, zero-downtime deployments to ensure that mission-critical 
+sites stay online. DXP Cloud delivers data through a multi-region architecture 
+to ensure high availability. 
 
-Keep track of application performance with real-time build and deployment logs. 
-DevOps teams can analyze stack traces and troubleshoot bugs from their web 
-console and command-line interface, or download the logs for use in their 
-preferred tools. 
-
-![Figure 2: Real-time build and deployment logs help you solve problems with your applications.](../images/build-logs.png)
-
-### Monitoring
-
-DXP Cloud delivers detailed performance metrics so IT teams can understand the 
-health and compute requirements of their sites over time. Administrators can 
-use out-of-the-box Dynatrace integration to quickly understand CPU and memory 
-usage, data transfer rates, and more. 
-
-![Figure 3: Use a variety of metrics to keep tabs on your DXP Cloud services, including your Liferay DXP instances.](../images/app-metrics.png)
-
-### Auto-scaling
-
-Dynamically scale bandwidth and compute capacity to maintain steady performance 
-through traffic peaks. This helps IT teams automatically address unexpected 
-traffic flows and avoid service disruptions. Similarly, unneeded resources can 
-be downscaled during periods of lower activity. Teams receive automatic 
+[Auto-scaling](/docs/-/knowledge_base/dxp-cloud/auto-scaling) ensures that 
+bandwidth and compute capacity is dynamically added to maintain steady 
+performance through traffic peaks. Similarly, unneeded resources can be 
+scaled down during periods of lower activity. Teams receive automatic 
 notifications and email alerts regarding instance usage so they can manage 
 resources with confidence. 
 
-![Figure 4: Auto-scale your servers to meet demand.](../images/auto-scaling.png)
+![Figure 5: Auto-scale your servers to meet demand.](../images/auto-scaling.png)
 
-### Governance
+## Real Time Alerts
 
-Administrators can deliver maximum productivity and security by adding or 
-removing people from teams and managing permissions within each project 
-environment. With DXP Cloud, there's no need to develop and deploy a separate 
-permissioning tool to fit your organization's DevOps workflow; this 
-functionality is available out-of-the-box. 
+Administrators can configure [Usage alerts](/docs/-/knowledge_base/dxp-cloud/real-time-alerts) 
+per user to receive resource utilization updates in real-time. Quotas keep you 
+in control of your project and provide clear governance. 
 
-![Figure 5: Manage your project's team members, including their permissions.](../images/invite-member.png)
+![Figure 6: Real Time Alerts](../images/alerts-prefs-page.png)
 
-### Backup, Recovery, and Security
+## Accelerated Development with Built-in CI/CD
 
-DXP Cloud provides automatic, secure backups to ensure that data and documents 
-are protected and ready for restoration in case of critical data corruption or 
-failure. Encryption at rest ensures that sensitive data saved on disks isn't 
-readable by any user or application without a valid key. DXP Cloud delivers 
-data through multi-region architecture to ensure high availability. 
+Deliver your application sooner with a fully realized 
+CI/CD strategy available out-of-the-box. 
+[Github and Jenkins](/docs/-/knowledge_base/dxp-cloud/continuous-integration) 
+integrations allow each new commit or pull request to trigger a build that 
+can be deployed to your 
+[QA, UAT, or production environments](/docs/-/knowledge_base/dxp-cloud/environments). 
 
-![Figure 6: DXP Cloud's backup service preserves and protects your data.](../images/backups.png)
+These robust systems enable the creation of fault tolerance processes 
+to meet organizations' unique needs and detect and repair common server 
+problems as they occur. This helps prevent small programming errors from 
+accumulating and causing a server crash. 
+
+![Figure 7: View, manage, and deploy your builds from a central location.](../images/builds.png)
+
+## Application Development Tools
+
+Keep track of application deployments and performance with real-time build and 
+deployment logs. Teams can analyze stack traces and troubleshoot bugs by 
+[accessing the shell](/docs/-/knowledge_base/dxp-cloud/shell-access) 
+via the web console, 
+[directly via terminal](/docs/-/knowledge_base/dxp-cloud/shell-access), 
+or download the logs. 
+
+![Figure 8: Real-time build and deployment logs help you solve problems with your applications.](../images/build-logs.png)
+
+## Insightful Monitoring
+
+DXP Cloud delivers [application metrics](/docs/-/knowledge_base/dxp-cloud/application-metrics
+) so IT teams can understand the health and compute requirements of their sites 
+over time. Administrators can also use out-of-the-box 
+[Dynatrace integration](/docs/-/knowledge_base/dxp-cloud/using-the-liferay-dxp-service) 
+to quickly understand CPU and memory usage, data transfer rates, and more. 
+
+![Figure 9: Use a variety of metrics to keep tabs on your DXP Cloud services, including your Liferay DXP instances.](../images/app-metrics.png)
+
+## Next Steps
+
+Ready to take the next step? Take your First Steps. See Walking through 
+the Development Life Cycle to learn more about the DXP Cloud development 
+process. 
