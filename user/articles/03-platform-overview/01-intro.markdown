@@ -4,25 +4,33 @@ header-id: platform-overview
 
 # Services
 
-DXP Cloud contains several built-in services that provide its functionality and 
-help you manage your projects. You can use and configure these services to fit 
-your project's needs. 
+DXP Cloud's built-in *services* are like the sturdy foundation of a house. These 
+services provide DXP Cloud's core functionality, which you can use and configure 
+to fit your project's needs. Using the foundation that these services provide, 
+you can construct and manage your Liferay DXP applications. 
 
-## Available Services
+The following services are available in DXP Cloud: 
 
-**Backup Service:** Creates regular backups of your Liferay DXP database and 
-Document Library. 
-
-**Liferay DXP Service:** Runs your application's Liferay DXP instance. 
-
-**Web Server Service:** Handles all traffic from your users and acts as a 
-high-performance web server. 
+**Liferay DXP Service:** Runs your Liferay DXP instance. 
 
 **Database Service:** Provides a distributed relational database service that 
 simplifies the setup, operation, and scaling of your applications. 
 
 **Search Service:** Provides the full-text search engine for your Liferay DXP 
 application. 
+
+**Web Server Service:** Handles all traffic from your users and acts as a 
+high-performance web server. 
+
+**Backup Service:** Creates regular backups of your Liferay DXP database and 
+Document Library. 
+
+<!-- 
+Include section on Docker?
+
+Where should we put the Updating Service Images section? It doesn't seem to fit 
+here, since this doc describes services from a higher level.
+-->
 
 ## Updating Service Images
 
