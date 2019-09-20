@@ -27,7 +27,7 @@ Follow these steps to connect your environment to a VPN:
 To disconnect your service from a VPN after it's connected, click the 
 *Disconnect* button. 
 
-![Figure 1: You can connect to a VPN from the Settings tab.](../../images/vpn-connection.png)
+![Figure 1: You can connect to a VPN from the Settings tab.](../../../images/vpn-connection.png)
 
 ## Port Configuration
 
@@ -46,4 +46,4 @@ To remove a port, click its *Actions* button
 (![Actions](../../images/icon-actions.png)) 
 and select *Remove*. 
 
-![Figure 2: You can also configure port forwarding.](../../images/vpn-ports.png)
+![Figure 2: You can also configure port forwarding.](../../../images/vpn-ports.png)

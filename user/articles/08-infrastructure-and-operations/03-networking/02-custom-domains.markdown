@@ -17,7 +17,7 @@ you're ready for the next step.
 | **Note:** You can find the dedicated environment IP on a service's Custom 
 | Domains or the Network page. 
 
-![Figure 1: This example uses Cloudflare as a domain name registrar to create DNS records.](../../images/dns-records.png)
+![Figure 1: This example uses Cloudflare as a domain name registrar to create DNS records.](../../../images/dns-records.png)
 
 ## Adding Your Domain to Your Service
 
@@ -33,7 +33,7 @@ Follow these steps to add custom domains via the web console:
 
 3.  Click the *Custom Domains* tab and add your custom domains. 
 
-![Figure 2: Use the service's Custom Domains tab to add your domains.](../../images/custom-domains.png)
+![Figure 2: Use the service's Custom Domains tab to add your domains.](../../../images/custom-domains.png)
 
 Alternatively, you can add your custom domains via the `customDomains` property 
 in the service's `LCP.json`: 
@@ -71,4 +71,4 @@ To learn more about using SSL certificates in Liferay DXP Cloud, including how
 to set up your own custom SSL certificate, see 
 [Load Balancer](/docs/-/knowledge_base/dxp-cloud/load-balancer). 
 
-![Figure 3: View all your endpoints and custom domains on the Network page.](../../images/custom-domains-status.png)
+![Figure 3: View all your endpoints and custom domains on the Network page.](../../../images/custom-domains-status.png)
