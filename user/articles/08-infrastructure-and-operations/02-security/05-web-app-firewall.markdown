@@ -1,3 +1,7 @@
+---
+header-id: web-application-firewall
+---
+
 # Web Application Firewall
 
 DXP Cloud provides built-in Web Application Firewall (WAF) capabilities, 
