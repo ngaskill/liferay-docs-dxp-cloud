@@ -13,16 +13,16 @@ company VPN. You'll learn how to do this here.
 
 Follow these steps to connect your environment to a VPN: 
 
-1.  Go to your environment's *Settings* tab. 
+1. Go to your environment's *Settings* tab. 
 
-2.  Choose the type of VPN connection. Here are the supported types: 
+2. Choose the type of VPN connection. Here are the supported types: 
 
-    -   OpenVPN
-    -   IPSec
+    - OpenVPN
+    - IPSec
 
-3.  Fill in the VPN's required fields. 
+3. Fill in the VPN's required fields. 
 
-4.  Click *Connect VPN*. 
+4. Click *Connect VPN*. 
 
 To disconnect your service from a VPN after it's connected, click the 
 *Disconnect* button. 
@@ -34,16 +34,16 @@ To disconnect your service from a VPN after it's connected, click the
 Once connected to a VPN, you can choose which ports to forward requests to. 
 Follow these steps to do so: 
 
-1.  On the same page, click *Add VPN Port*. 
+1. On the same page, click *Add VPN Port*. 
 
-2.  Enter the local hostname and port for DXP Cloud. 
+2. Enter the local hostname and port for DXP Cloud. 
 
-3.  Enter the forwarding hostname and port for the VPN. 
+3. Enter the forwarding hostname and port for the VPN. 
 
-4.  Click *Add Port* when you're finished. 
+4. Click *Add Port* when you're finished. 
 
 To remove a port, click its *Actions* button 
-(![Actions](../../images/icon-actions.png)) 
+(![Actions](../../../images/icon-actions.png)) 
 and select *Remove*. 
 
 ![Figure 2: You can also configure port forwarding.](../../../images/vpn-ports.png)

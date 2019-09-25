@@ -101,7 +101,7 @@ custom certificate, provide a key and certificate in Base64 format:
 The Network page shows any custom certificates, with a maximum of one per 
 service. 
 
+![Figure 4: DXP Cloud shows the status of SSL certificates that cover custom domains.](../../../images/load-balancer-ssl-cert.png)
+
 For more information, see 
 [Custom Domains](/docs/-/knowledge_base/dxp-cloud/custom-domains). 
-
-![Figure 4: DXP Cloud shows the status of SSL certificates that cover custom domains.](../../../images/load-balancer-ssl-cert.png)

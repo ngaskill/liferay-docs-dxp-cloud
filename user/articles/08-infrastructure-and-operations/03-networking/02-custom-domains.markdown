@@ -67,8 +67,8 @@ safely ignore these warnings because the process is not yet complete.
 Apart from trying to reach the service endpoint through a browser, you can 
 verify its status on the Network page. 
 
+![Figure 3: View all your endpoints and custom domains on the Network page.](../../../images/custom-domains-status.png)
+
 To learn more about using SSL certificates in Liferay DXP Cloud, including how 
 to set up your own custom SSL certificate, see 
 [Load Balancer](/docs/-/knowledge_base/dxp-cloud/load-balancer). 
-
-![Figure 3: View all your endpoints and custom domains on the Network page.](../../../images/custom-domains-status.png)
