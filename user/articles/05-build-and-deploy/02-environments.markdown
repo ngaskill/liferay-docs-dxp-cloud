@@ -65,4 +65,3 @@ differ in how their backup and database services function.
     IOPS. 
 
 ![Figure 3: Your environment's type appears in *Settings*.](../../images/environment-type.png)
-
