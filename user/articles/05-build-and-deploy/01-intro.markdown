@@ -4,10 +4,10 @@ header-id: builds-and-deployments
 
 # Builds and Deployments
 
-DXP Cloud helps you manage your applications throughout their development 
-lifecycle. You can use DXP Cloud to build your application and mange the builds 
-in your environment. Once a build succeeds, you can deploy it to any 
-environment. DXP Cloud also contains 
+DXP Cloud helps administrators manage applications throughout their development 
+life cycle. Administrators and developers can use DXP Cloud to build an 
+application and manage the builds in their environment. Once a build succeeds, 
+administrators can deploy it to any environment. DXP Cloud also uses 
 [Jenkins](https://jenkins.io/) 
-continuous integration by default, and persistent storage volumes for your 
+continuous integration by default and persistent storage volumes for their 
 services. 
