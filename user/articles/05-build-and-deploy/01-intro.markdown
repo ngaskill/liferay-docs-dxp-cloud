@@ -1,8 +1,8 @@
 ---
-header-id: development-lifecycle
+header-id: builds-and-deployments
 ---
 
-# Development Lifecycle
+# Builds and Deployments
 
 DXP Cloud helps you manage your applications throughout their development 
 lifecycle. You can use DXP Cloud to build your application and mange the builds 
