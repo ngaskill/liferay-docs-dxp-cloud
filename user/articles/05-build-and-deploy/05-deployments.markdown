@@ -7,15 +7,34 @@ services. If these checks succeed, the deployment is healthy and ready.
 
 Here, you'll learn about the following: 
 
+-   [Viewing Your Deployments](#viewing-your-deployments)
 -   [Deploying to a Different Environment](#deploying-to-a-different-environment)
--   [Deployment Region](#deployment-region)
--   [Deployment Types](#deployment-types)
--   [Service Health Probes](#service-health-probes)
+-   [Setting the Deployment Region](#setting-the-deployment-region)
+-   [Setting the Deployment Type](#setting-the-deployment-type)
+-   [Using Service Health Probes](#using-service-health-probes)
 
-To see your deployments, go to your environment page and click the *Deployments* 
-tab on the top-right side. 
+## Viewing Your Deployments
 
-![Figure 1: The Deployments tab lists the deployments in your environment.](../../images/deployments.png)
+You can view your project's deployments from any environment via the 
+*Deployments* tab on the top-right side. The latest deployments appear first, in 
+cards that show the following information about the deployment: 
+
+-   The deployment's environment
+-   The user who initiated the deployment
+-   The deployment's DXP Cloud services
+-   The build ID
+-   The GitHub branch the deployment originated from
+-   The deployed commit
+-   The commit message
+-   The deployment date
+
+Below the cards, the *History* table lists the history of deployments in your 
+project. For each deployment, the table lists the same information as the cards. 
+To view a deployment's logs, click that deployment's *Actions* button 
+(![Actions](../../images/icon-actions.png)) 
+and select *View Deployment Logs*. 
+
+![Figure 1: The Deployments tab lists your project's deployments.](../../images/deployments.png)
 
 ## Deploying to a Different Environment
 
@@ -37,7 +56,7 @@ different environment, follow these steps:
 
     ![Figure 3: Deploy the build to your selected environment.](../../images/builds-deploy-environment.png)
 
-## Deployment Region
+## Setting the Deployment Region
 
 You can configure each environment to host the services in a specific region. 
 This configuration must be set when creating the environment. To request a new 
@@ -45,7 +64,7 @@ deployment region, contact support.
 
 ![Figure 4: Choose a deployment location for new environments.](../../images/deployment-region.png)
 
-## Deployment Types
+## Setting the Deployment Type
 
 DXP Cloud provides two deployment types. You can set these in your service's 
 `LCP.json`: 
@@ -92,7 +111,7 @@ deployment type:
 }
 ```
 
-## Service Health Probes
+## Using Service Health Probes
 
 You can use two probe types to validate your service's health: 
 
@@ -102,7 +121,9 @@ You can use two probe types to validate your service's health:
     requests. 
 
 For each probe, you can use a URL request or an executable command to validate 
-the status: 
+the status. You must configure the liveness and/or readiness probes in your 
+service's `LCP.json` file via the `livenessProbe` and/or `readinessProbe` 
+attributes, respectively: 
 
 **URL Request (path/port):**
 
@@ -132,20 +153,20 @@ the status:
 
 Here are descriptions for each property you can use in the probes: 
 
-`initialDelaySeconds`: Number of seconds after the container has started before 
-the probe is initiated. 
+-   `initialDelaySeconds`: Number of seconds after the container has started 
+    before the probe is initiated. 
 
-`periodSeconds`: How often (in seconds) to perform the probe. The default is 
-`10`; the minimum is `1`. 
+-   `periodSeconds`: How often (in seconds) to perform the probe. The default is 
+    `10`; the minimum is `1`. 
 
-`timeoutSeconds`: Number of seconds after which the probe times out. The default 
-and minimum is `1`. 
+-   `timeoutSeconds`: Number of seconds after which the probe times out. The 
+    default and minimum is `1`. 
 
-`successThreshold`: Minimum consecutive successes for the probe to be considered 
-successful following a failure. The default and minimum is `1`. Must be `1` for 
-liveness. 
+-   `successThreshold`: Minimum consecutive successes for the probe to be 
+    considered successful following a failure. The default and minimum is `1`. 
+    Must be `1` for liveness. 
 
-`failureThreshold`: The number of times DXP Cloud repeats a failed probe before 
-giving up. For a liveness probe, giving up means the service will restart. For a 
-readiness probe, giving up means the probe will be marked as Failed. The default 
-is `3`; the minimum is `1`. 
+-   `failureThreshold`: The number of times DXP Cloud repeats a failed probe 
+    before giving up. For a liveness probe, giving up means the service will 
+    restart. For a readiness probe, giving up means the probe will be marked as 
+    Failed. The default is `3`; the minimum is `1`. 
