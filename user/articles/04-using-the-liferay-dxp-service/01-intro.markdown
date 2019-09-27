@@ -4,7 +4,7 @@ header-id: using-the-liferay-dxp-service
 
 # Liferay DXP Service
 
-The Liferay DXP service is the heartbeat of your project. It runs your 
+The Liferay DXP service is the heartbeat of any project. It runs the 
 application's Liferay DXP instance and interacts with other services like the 
 web server, Elasticsearch, and MySQL database. 
 
@@ -12,9 +12,9 @@ web server, Elasticsearch, and MySQL database.
 
 ## Deployment
 
-To install themes, portlets, or OSGi modules, you can include a WAR or JAR file 
-in the `/deploy/common` folder. For example, to deploy a custom JAR file, your 
-Liferay DXP source code directory could look like this: 
+To install themes, portlets, or OSGi modules, place a WAR or JAR file in the 
+`/deploy/common` folder. For example, to deploy a custom JAR file, the Liferay 
+DXP source code directory could look like this: 
 
     liferay
     ├── deploy
@@ -22,13 +22,12 @@ Liferay DXP source code directory could look like this:
     │   └── com.liferay.apio.samples.portlet-1.0.0.jar
     └── LCP.json
 
-Under the hood, such files are copied to the `$LIFERAY_HOME/deploy` folder and 
-deployed on startup. 
+On the DXP Service, such files are copied to the `$LIFERAY_HOME/deploy` folder 
+and deployed on startup. 
 
 ## Licenses
 
-It's possible to add your own license by creating a license folder for the 
-license: 
+It is possible to add a separate license by creating a license folder:
 
     liferay
     ├── license
@@ -41,14 +40,14 @@ to `$LIFERAY_HOME/data`.
 
 ## Hot Deploy
 
-Using hot deploy in DXP Cloud isn't recommended. If you still want to use hot 
+Using hot deploy in DXP Cloud is not recommended. If you still want to use hot 
 deploy, you can do so via the Liferay DXP UI. 
 
 ## Configurations
 
-To launch new property or OSGI configurations, you can use the `config` folder 
-as an extension point. This extension point supports `.cfg`, `.properties`, and 
-`.config` files. 
+To launch new property or OSGI configurations, use the `config` folder as an 
+extension point. This extension point supports `.cfg`, `.properties`, and 
+`.config` files.
 
 For example, to deploy a configuration for the Elasticsearch OSGi bundle, your 
 folder structure could look like this: 
@@ -58,48 +57,47 @@ folder structure could look like this:
     │ └── com.liferay.portal.search.elasticsearch6.configuration.ElasticsearchConfiguration.config
     └── LCP.json
 
-Under the hood, all files are copied to the `$LIFERAY_HOME` folder and 
-automatically applied on startup. 
+All files are copied to the `$LIFERAY_HOME` folder and automatically applied on 
+startup.
 
 ## Portal Properties
 
-There's also a set of files you can use to configure the environment. The portal 
-reads these files in the following order: 
+There is also a set of files used to configure the environment. The portal reads 
+these files in the following order:
 
 `portal-all.properties`: Contains the properties that change Liferay DXP across 
-environments. 
+environments.
 
 `portal-env.properties`: Contains the properties that only affect the current 
-environment (e.g., credentials and URL endpoints for external services that 
-differ from environment to environment). 
+environment (for example, credentials and URL endpoints for external services 
+that differ from environment to environment).
 
-`portal-clu.properties`: Contains the preconfigured properties for clustering 
-Liferay DXP on DXP Cloud. You typically don't need to change these. See the 
+`portal-clu.properties`: Contains the pre-configured properties for clustering 
+Liferay DXP on DXP Cloud. See the 
 [Clustering section](#clustering) 
-for more information. 
+for more information.
 
-`portal-ext.properties`: Contains the final changes to your Liferay DXP 
-configuration. Since you should set most of your properties in 
-`portal-all.properties` and `portal-env.properties`, this file is typically 
-empty or missing altogether. For testing, however, you may find it useful. 
+`portal-ext.properties`: Contains the final changes to the Liferay DXP 
+configuration. Since most properties are configured in `portal-all.properties` 
+and `portal-env.properties`, this file is typically empty or missing altogether. 
+It may still be useful for testing purposes. 
 
-Note that portal properties can be defined as environment variables, as 
-instructed in 
-[Liferay DXP's documentation](/docs/7-0/user/-/knowledge_base/u/environment-variables). 
+Note that portal properties can be defined as environment variables; see 
+[DXP Environment Variables](https://help.liferay.com/hc/en-us/articles/360017877312-Environment-Variables).
 
 ## Environment Variables
 
 Name                                  | Default Value | Description  |
 ------------------------------------- | ------------- | ------------ |
 `LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` | `false`       | Whether to enable clustering and communication between nodes. |
-`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS product. |
+`LCP_PROJECT_MONITOR_DYNATRACE_TENANT` |               | A string with eight characters. It's part of the URL (prefix) of your Dynatrace SaaS account. |
 `LCP_PROJECT_MONITOR_DYNATRACE_TOKEN` |               | A string with 22 characters that you can find in your Dynatrace account at *Deploy Dynatrace* &rarr; *Start installation* &rarr; *Set up PaaS monitoring* &rarr; *Installer Download*. |
 
 ## Advanced Monitoring with Dynatrace
 
-To enable advanced monitoring with Dynatrace on Liferay DXP in production, you 
-must set the two `*_DYNATRACE_*` environment variables described in the above 
-table. Here's an example:
+To enable advanced monitoring with Dynatrace on Liferay DXP in production, set 
+the two `*_DYNATRACE_*` environment variables described in the above table. 
+Here's an example:
 
 ```json
 "environments": {
@@ -115,7 +113,7 @@ table. Here's an example:
 ## Clustering
 
 Clustering Liferay DXP on DXP Cloud is straightforward. Follow these steps to 
-enable clustering: 
+enable clustering:
 
 1.  Set the environment variable `LCP_PROJECT_LIFERAY_CLUSTER_ENABLED` to 
     `true`. This instructs the image startup process to add the clustering 
@@ -131,15 +129,15 @@ Cloud.
 ### Verify that Clustering is Working
 
 To check if clustering is working correctly, check the logs of the Liferay DXP 
-instances for the `Accepted View` message from the `JGroupsReceiver` class. 
-Here's an example: 
+instances for the `Accepted View` message from the `JGroupsReceiver` class. Here 
+is an example: 
 
 ```shell
 Aug 26 09:42:22.778 build-90 [liferay-68b8f6b48d-hdj9t] [dxp] INFO  [Incoming-2,liferay-channel-transport-0,liferay-68b8f6b48d-hdj9t-23003][JGroupsReceiver:91] Accepted view [liferay-68b8f6b48d-r8r5f-1292|8] (3) [liferay-68b8f6b48d-r8r5f-1292, liferay-68b8f6b48d-gzsg4-15389, liferay-68b8f6b48d-hdj9t-23003]
 Aug 26 09:42:22.779 build-90 [liferay-68b8f6b48d-hdj9t] [dxp] INFO  [Incoming-1,liferay-channel-control,liferay-68b8f6b48d-hdj9t-17435][JGroupsReceiver:91] Accepted view [liferay-68b8f6b48d-r8r5f-29669|8] (3) [liferay-68b8f6b48d-r8r5f-29669, liferay-68b8f6b48d-gzsg4-48301, liferay-68b8f6b48d-hdj9t-17435]
 ```
 
-Here's a description of these example logs: 
+Here is a description of these example logs:
 
 -   `Accepted view [liferay-68b8f6b48d-r8r5f-1292|8]` indicates that 
     `liferay-68b8f6b48d-r8r5f-1292` is the master node. 
@@ -155,8 +153,8 @@ number of instances will increase according to demand.
 
 ## Hotfixes
 
-To apply hotfixes, add the hotfix ZIP file to the `hotfix` folder. When you 
-deploy this change, the hotfix is applied to your application. 
+To apply hotfixes, add the hotfix ZIP file to the `hotfix` folder. Use the 
+following folder structure: 
 
     liferay
     ├── hotfix
@@ -165,13 +163,13 @@ deploy this change, the hotfix is applied to your application.
 
 ## Scripts
 
-You can use scripts for more extensive customizations. However, use caution when 
+Scripts may be used for more extensive customizations. However, use caution when 
 doing so. This is the most powerful way to customize Liferay DXP and can cause 
-undesired side effects. 
+undesired side effects.
 
-Any `.sh` files found in the `script` folder are run prior to starting your 
-service. For example, to include a script that removes all log files, you could 
-place it in the following directory structure: 
+Any `.sh` files found in the `script` folder are run prior to starting a 
+service. For example, to include a script that removes all log files, place it 
+in the following directory structure: 
 
     liferay
     ├── script
