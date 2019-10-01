@@ -38,36 +38,28 @@ you change the team member's role or remove the member from the team.
 
 ## Understanding Team Roles
 
-You can assign these roles to team members: 
-
-**Admin:** Has full control over the environment and its members. They have 
-exclusive permission to: 
+**Admin:** Has full control over the DXP Cloud project and its members. They 
+have exclusive permissions to: 
 
 -   Enable/disable auto scaling
 -   Manually downscale a service
 -   Restore from a backup
--   Change user role
--   Invite members to the environment
--   Remove members from the environment
+-   Change user roles
+-   Invite members to the project
+-   Remove members from the project
 -   Enable/disable support access
 -   Delete a service
 
-Admins also have the permissions that Contributors have. 
-
 **Contributor:** Can handle application management and most of the development 
-lifecycle, but can't manage team members or perform other Admin-exclusive 
-actions. They have permission to: 
+life cycle, but can't manage team members or perform other Admin-exclusive 
+actions. Contributors have permission to: 
 
 -   Start a backup
 -   Change VPN settings
 -   Restart a service
 -   Deploy a build
--   Remove themselves from the environment
+-   Remove themselves from the project
 
-**Guest:** Has view-only access. Guests can see what's happening in the 
-environment but can't perform actions or make any changes. This includes not 
-having access to service features such as using shell access to run commands, 
-changing/creating environment variables, or specifying custom domains. They only 
-have permission to: 
-
--   Remove themselves from the environment
+**Guest:** Has view-only access. Guests can see what is happening in the 
+project, but can't perform actions or make any changes. They only have 
+permission to remove themselves from the project. 
