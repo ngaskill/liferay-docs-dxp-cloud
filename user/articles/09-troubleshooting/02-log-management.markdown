@@ -18,15 +18,18 @@ the toolbar. To download the logs, click *Download Logs*.
 
 ## Accessing Logs from the Terminal
 
-You can also access logs from your terminal by running this command: 
+| **Note:** To access logs via the terminal, you must be an administrator or 
+| developer. 
+
+Run this command to access logs from your terminal: 
 
 ```shell
 lcp log
 ```
 
-This lists all your services so that you can choose the one whose logs to 
-access. To access logs from a specific environment you can enter its ID or run 
-the command with that ID: 
+The `lcp log` command lists logs for all services. You can then choose which 
+log(s) to access. To access logs from a specific environment, you can enter its 
+ID or run the `lcp log` command with that ID: 
 
 ```shell
 lcp log -p myenvironmentid
