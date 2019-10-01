@@ -1,3 +1,7 @@
+---
+header-id: team-activities
+---
+
 # Team Activities
 
 To see the team members' activities, click *Activities* on the left menu. The 
