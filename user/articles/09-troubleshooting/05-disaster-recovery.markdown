@@ -118,7 +118,7 @@ from the production environment. Follow these steps to do so:
 
 ![Figure 3: For the webserver service, configure the DR environment's custom domains to match those of the production environment.](../../images/webserver-custom-domain-dr.png)
 
-## Post-Incident Recovery
+## Post-incident Recovery
 
 Once the regional incident is over, you must shift back to the original region's 
 production environment (*eu-west2* in this example). Do this via these steps: 
