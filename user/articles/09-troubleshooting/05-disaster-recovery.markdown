@@ -15,13 +15,11 @@ in this document is only necessary when there is a compromise in all three
 Availability Zones in the same region at the same time. 
 
 This article documents the steps required to help a customer recover data 
-manually during a cross-region disaster.
-
-## Steps
+manually during a cross-region disaster: 
 
 -   [Initial Setup](#initial-setup)
 -   [During an Incident](#during-an-incident)
--   [Post-incident Recovery Steps](#post-incident-recovery-steps)
+-   [Post-incident Recovery](#post-incident-recovery)
 
 ## Initial Setup
 
@@ -120,7 +118,7 @@ from the production environment. Follow these steps to do so:
 
 ![Figure 3: For the webserver service, configure the DR environment's custom domains to match those of the production environment.](../../images/webserver-custom-domain-dr.png)
 
-## Post-Incident Recovery Steps
+## Post-Incident Recovery
 
 Once the regional incident is over, you must shift back to the original region's 
 production environment (*eu-west2* in this example). Do this via these steps: 
