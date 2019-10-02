@@ -101,64 +101,94 @@ environment:
 
 ### Configure the Web Server's Custom Domain
 
-The web server service's custom domain in the DR environment should match that 
-of the original production environment. Follow these steps to update this in the 
-DR environment: 
+The web server service's custom domain in the DR environment must match that of 
+the original production environment. You must also delete that configuration 
+from the production environment. Follow these steps to do so: 
 
 1.  In the DR environment, select *Services* in the left menu. 
 
 2.  Click *webserver* in the list of Services. 
 
-3.  Click the *Custom Domains* tab. 
+3.  Click the *Custom Domains* tab and configure the custom domain to match that 
+    of the production environment. 
 
-![Web Server settings](./disaster-recovery/images/07.png)
+4.  Navigate to the same setting in the production environment, and remove the 
+    custom domain configuration. 
 
-1. Remove the custom domain from the Production environment.
-1. Update the DNS records. For more information, see the [Custom Domain](https://help.liferay.com/hc/en-us/articles/360032856292) article.
-1. Click _Update Custom Domain_.
+5.  Update the DNS records. For more information, see 
+    [Custom Domains](/docs/-/knowledge_base/dxp-cloud/custom-domains). 
+
+![Figure 3: For the webserver service, configure the DR environment's custom domains to match those of the production environment.](../../images/webserver-custom-domain-dr.png)
 
 ## Post-Incident Recovery Steps
 
-Once the regional incident is over, there are some necessary steps to shift back to the original region production environment (*eu-west2* in this example). A manual backup must be performed since new user data has been generated during the period the DR environment served as the production environment.
+Once the regional incident is over, you must shift back to the original region's 
+production environment (*eu-west2* in this example). Do this via these steps: 
 
-### Create a Manual Backup in the DR environment
+-   [Create a Manual Backup in the DR Environment](#create-a-manual-backup-in-the-dr-environment)
+-   [Restore the Manual Backup from DR to Production](#restore-the-manual-backup-from-dr-to-production)
+-   [Update the Web Server Custom Domain in Production](#update-the-web-server-custom-domain-in-production)
 
-During the incident, new data has been generated on the *DR* environment. This must be imported into the original production environment; therefore, a backup is created in the *DR* environment.
+### Create a Manual Backup in the DR Environment
 
-1. Navigate to _Backups_ on the **DR** environment.
-1. Click _Backup Now_.
+During the incident, the DR environment functions as the production environment 
+and therefore contains new data. To preserve this data, you must back up the DR 
+environment. Follow these steps to do so: 
 
-    ![Creating backups](./disaster-recovery/images/08.png)
+1.  In the DR environment, click *Backups* in the menu on the left. 
 
-### Restore the Manual Backup from DR to Production environment
+2.  Click *Backup Now*. 
 
-1. Navigate to _Backups_ on the **DR** environment.
-1. Click the _3-dot_ icon from the most recent back up then click _Restore_.
+![Figure 4: Create a manual backup of the DR environment.](../../images/backups-manual-dr.png)
 
-    ![Restore backups](./disaster-recovery/images/09.png)
+### Restore the Manual Backup from DR to Production
 
-1. Select the production environment.
+1.  In the DR environment, click *Backups* in the menu on the left. 
 
-    ![Restore backups](./disaster-recovery/images/10.png)
+2.  The Backup History lists the backups in two tabs: one for the DR environment 
+    and one for the production environment. Click the tab corresponding to the 
+    DR environment. 
 
-1. Click _Deploy Build_.
+3.  For the most recent backup (the one you just created), click the 
+    *Actions* button 
+    (![Actions](../../images/icon-actions.png)) 
+    then select *Restore*. 
 
-### Update the Web Server Custom Domain in the Production environment
+4.  Select the production environment and click *Deploy Build*.
 
-Because the custom domain was updated in the *DR* environment, the settings have to be updated again so that all traffic is redirected back to the correct domain.
+![Figure 5: Deploy the backup to the production environment.](../../images/backup-restore-prod-dr.png)
 
-1. Navigate to _Services_ on the left menu.
-1. Click on _webserver_ in the list of Services.
-1. Click the _Custom Domains_ tab.
+### Update the Web Server Custom Domain in Production
+<!-- 
+Shouldn't this say to restore the custom domain setting from DR to production?
+-->
+
+Because you updated the webserver service's custom domain in the DR environment, 
+you must update these settings again so that all traffic is redirected back to 
+the correct domain. 
+
+1.  Navigate to _Services_ on the left menu.
+
+2.  Click on _webserver_ in the list of Services.
+
+3.  Click the _Custom Domains_ tab.
 
 ![Remove custom domain](./disaster-recovery/images/11.png)
 
 1. Remove the custom domain from the Production environment.
+
 1. Update the DNS records. For more information, see the [Custom Domain](https://help.liferay.com/hc/en-us/articles/360032856292) article.
+
 1. Click _Update Custom Domain_.
 
 ## Additional Information
+<!--
+I don't understand this diagram. It says "restoring from production to the 
+disaster recovery environment," but the arrow is going from the DR environment 
+to the automated backup. 
+-->
 
-Below is a diagram of how the restoration process from production to the disaster recovery environment looks like:
+Below is a diagram of how the restoration process from production to the 
+disaster recovery environment looks like:
 
 ![Builds and Deployments](./disaster-recovery/images/12.png)
