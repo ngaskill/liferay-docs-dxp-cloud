@@ -8,7 +8,7 @@ Each service in your DXP Cloud environments has an `LCP.json` file that you can
 use to configure the service. You can configure properties like the service ID, 
 memory, number of CPUs, environment variables, volumes, and much more. 
 
-This table lists the properties you can add to `LCP.json`: 
+This table lists and describes the properties you can add in `LCP.json`: 
 
 Field | Type | Default Value | Description |
 ----- | ---- | ------------- | ----------- |
